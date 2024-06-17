@@ -1,0 +1,18 @@
+version: '3.7'
+services:    
+  app:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    tty: true
+    container_name: ${container_name}
+    image: 'ai_insurance_portal'
+    environment:
+      - STAG
+#    command: >
+ #     sh -c "npm i -f &&
+  #           npm run dev"
+    ports:
+      - ${APP_PORT}:4000
+    volumes:
+      - ./:/var/www/html
